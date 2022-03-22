@@ -26,7 +26,7 @@ def scrape():
     html = browser.html
     soup = BeautifulSoup(html, "lxml")
 
-    # Find the most recent article (find method will return first instance on page)
+    # Select the most recent article (select_one method returns first instance)
     latest_article = soup.select_one("li.slide")
 
     # Grab article's title, paragraph, and url
@@ -41,12 +41,12 @@ def scrape():
         "url": latest_url
     }
 
-    # Scrape with requests module serving the HTML for image of the week
+    # Scrape with requests module serving the HTML
     url = "https://mars.nasa.gov/"
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "lxml")
 
-    # Find the image of the week's src attribute and the name of the image
+    # Select the image of the week's src attribute and the name of the image
 
     # NASA uses js imageScroll to convert img tag
     featured_image = soup.select_one("#featured_image")
