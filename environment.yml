@@ -1,0 +1,14 @@
+name: mars_scrape
+channels:
+  - defaults
+dependencies:
+  - python=3.9
+  - beautifulsoup4
+  - lxml
+  - pandas
+  - selenium
+  - flask
+  - pip:
+    - webdriver-manager
+    - splinter
+    - pymongo
