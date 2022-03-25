@@ -4,13 +4,26 @@
 {% block main %}
     <div class="row justify-content-center">
         <div class="col-lg-5 col-xl-3">
-            <div class="card bg-dark text-white">
+            <div class="card bg-primary text-white">
                 <div class="card-header">
                     <h5>Update</h5>
                 </div>
                 <div class="card-body">
-                    <h6 class="card-text">Pressing this button will scrape several websites for content. This process will take some time to complete.</h6>
+                    <h6 class="card-text">Pressing this button will scrape the source websites for content. This process will take some time to complete.</h6>
                     <button type="button" class="btn btn-primary btn-lg d-flex mx-auto"><a href="{{ url_for('scrape') }}" class="text-decoration-none link-light">Let's Update!</a></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="card bg-secondary text-white">
+                <div class="card-header">
+                    <h5>Sources</h5>
+                </div>
+                <div class="card-body">
+                    <h6 class="card-text">Mars News: <a href="https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest" class="text-decoration-none">News - NASA Mars Exploration</a></h6>
+                    <h6 class="card-text">Image of the Week: <a href="https://mars.nasa.gov/" class="text-decoration-none">NASA Mars Exploration</a></h6>
+                    <h6 class="card-text">Mars Facts: <a href="https://mars.nasa.gov/all-about-mars/facts/" class="text-decoration-none">Mars Facts | All About Mars – NASA Mars Exploration</a></h6>
+                    <h6 class="card-text">Mars Hemispheres: <a href="https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars" class="text-decoration-none">Astropedia | USGS Astrogeology Science Center</a></h6>
                 </div>
             </div>
         </div>
