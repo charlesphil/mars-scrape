@@ -1,10 +1,12 @@
 # Import dependencies
 import time
+from datetime import datetime
 from bs4 import BeautifulSoup
 import pandas as pd
 import requests
 from splinter import Browser
 from webdriver_manager.chrome import ChromeDriverManager
+
 
 def scrape():
     # Set up a windowless Splinter browser with Chrome webdriver to use later 
@@ -14,8 +16,8 @@ def scrape():
 
     # Splinter browser
     url = ("https://mars.nasa.gov/news/?page=0&per_page=40"
-    + "&order=publish_date+desc%2Ccreated_at+desc&search="
-    + "&category=19%2C165%2C184%2C204&blank_scope=Latest")
+           + "&order=publish_date+desc%2Ccreated_at+desc&search="
+           + "&category=19%2C165%2C184%2C204&blank_scope=Latest")
     browser.visit(url)
 
     # NASA loads certain elements using JS, and can cause problems if we load 
@@ -34,10 +36,17 @@ def scrape():
     latest_para = latest_article.select_one("div.article_teaser_body").text
     latest_url = f"https://mars.nasa.gov{latest_article.a['href']}"
 
+    # Grab article's full-res image from article link
+    browser.visit(latest_url)
+    html = browser.html
+    soup = BeautifulSoup(html, "lxml")
+    latest_img = f"https://mars.nasa.gov{soup.select_one('#main_image')['src']}"
+
     # Save in a dictionary for quick access
     latest_news = {
         "title": latest_title,
         "paragraph": latest_para,
+        "img": latest_img,
         "url": latest_url
     }
 
@@ -53,7 +62,7 @@ def scrape():
     featured_url = f"https://mars.nasa.gov{featured_image['data-image']}"
 
     # Select the Image of the Week's Name
-    featured_name = soup.select_one(".image_of_the_day").\
+    featured_name = soup.select_one(".image_of_the_day"). \
         select_one(".media_feature_title").text.strip()
 
     # Get link to the article page for the image of the week
@@ -61,8 +70,8 @@ def scrape():
 
     # Store name, image url, and article url of featured image
     image_of_week = {
-        "name": featured_name, 
-        "img_url": featured_url, 
+        "name": featured_name,
+        "img_url": featured_url,
         "article_url": article_url
     }
 
@@ -75,11 +84,21 @@ def scrape():
     df = df.rename(columns={"Unnamed: 0": ""})
 
     # Convert to HTML table
-    html_facts_table = df.to_html(index=False)
+    html_facts_table = df.to_html(
+        index=False,
+        classes=[
+            "table",
+            "table-bordered",
+            "table-striped",
+            "table-dark",
+            "m-0"
+        ],
+        justify="center"
+    )
 
-   # Need to interact with website for images, use Splinter
+    # Need to interact with website for images, use Splinter
     url = ("https://astrogeology.usgs.gov/search/results?"
-        + "q=hemisphere+enhanced&k1=target&v1=Mars")
+           + "q=hemisphere+enhanced&k1=target&v1=Mars")
     browser.visit(url)
     html = browser.html
     soup = BeautifulSoup(html, "lxml")
@@ -121,9 +140,13 @@ def scrape():
     # End browser instance
     browser.quit()
 
+    # Get date for the last time database was updated
+    last_updated = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
     return {
-        "latest_news": latest_news, 
+        "latest_news": latest_news,
         "featured_img": image_of_week,
-        "facts": html_facts_table, 
-        "hemispheres": hemisphere_imgs
+        "facts": html_facts_table,
+        "hemispheres": hemisphere_imgs,
+        "last_updated": last_updated
     }

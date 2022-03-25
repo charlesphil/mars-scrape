@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% set active_page = "update" %}
+{% block title %}Update{% endblock %}
+{% block main %}
+    <div class="row justify-content-center">
+        <div class="col-lg-5 col-xl-3">
+            <div class="card bg-dark text-white">
+                <div class="card-header">
+                    <h5>Update</h5>
+                </div>
+                <div class="card-body">
+                    <h6 class="card-text">Pressing this button will scrape several websites for content. This process will take some time to complete.</h6>
+                    <a href="{{ url_for('scrape') }}" class="text-decoration-none"><button type="button" class="btn btn-primary btn-lg d-flex mx-auto">Let's Update!</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
