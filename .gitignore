@@ -133,3 +133,6 @@ Instructions/
 
 # PyCharm .idea folder
 .idea/
+
+# Text file that keeps track of MongoDB Atlas for future hosting
+Missions_to_Mars/db_login.txt

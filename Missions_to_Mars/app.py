@@ -7,11 +7,11 @@ app = Flask(__name__)
 # SECRET KEY FOR HOMEWORK PURPOSES ONLY (to enable flash messages)
 app.secret_key = "12345"
 
-# Set up mongo connection
+# Set up mongo connection (LOCALHOST FOR HOMEWORK PURPOSES ONLY)
 conn = "mongodb://localhost:27017"
 client = pymongo.MongoClient(conn)
 
-# Connect to mongo db and collection
+# Connect to database and collection
 db = client.mars_db
 collection = db.scraped_data
 
@@ -20,7 +20,10 @@ collection = db.scraped_data
 def home():
     content = collection.find_one()
     if content is None:
-        flash("No content was found. Attempting to scrape new data.", "warning")
+        flash(
+            "No content was found. Attempting to scrape new data.",
+            "warning"
+        )
         return redirect("/scrape", code=302)
     else:
         try:
@@ -33,7 +36,10 @@ def home():
                 last_updated=f"Last Updated: {content['last_updated']}"
             )
         except KeyError:
-            flash("Incomplete content. Attempting to scrape new data.", "warning")
+            flash(
+                "Incomplete content. Attempting to scrape new data.",
+                "warning"
+            )
             return redirect("/scrape", code=302)
 
 
@@ -55,7 +61,10 @@ def scrape():
 def update():
     last_date = collection.find_one()['last_updated']
     if last_date is None:
-        flash("Date last updated was missing. Attempting to scrape new data.", "warning")
+        flash(
+            "Date last updated was missing. Attempting to scrape new data.",
+            "warning"
+        )
         return redirect("/scrape", code=302)
     else:
         return render_template(
@@ -73,7 +82,10 @@ def updating():
 def about():
     last_date = collection.find_one()['last_updated']
     if last_date is None:
-        flash("Date last updated was missing. Attempting to scrape new data.", "warning")
+        flash(
+            "Date last updated was missing. Attempting to scrape new data.",
+            "warning"
+        )
         return redirect("/scrape", code=302)
     else:
         return render_template(

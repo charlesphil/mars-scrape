@@ -8,7 +8,8 @@ dependencies:
   - pandas
   - selenium
   - flask
+  - pip
   - pip:
-    - webdriver-manager
     - splinter
+    - webdriver-manager
     - pymongo

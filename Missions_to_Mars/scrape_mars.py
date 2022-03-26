@@ -6,13 +6,20 @@ import pandas as pd
 import requests
 from splinter import Browser
 from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
 
 
 def scrape():
     # Set up a windowless Splinter browser with Chrome webdriver to use later 
     # when interacting with the NASA News and Mars Facts pages
+    # Try with Chrome first
+    # try:
     executable_path = {"executable_path": ChromeDriverManager().install()}
     browser = Browser("chrome", **executable_path, headless=True)
+    # If Chrome is not installed, try with Firefox
+    # except:
+    #     executable_path = {"executable_path": GeckoDriverManager().install()}
+    #     browser = Browser("firefox", **executable_path, headless=True)
 
     # Splinter browser
     url = ("https://mars.nasa.gov/news/?page=0&per_page=40"

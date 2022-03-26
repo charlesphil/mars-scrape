@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-xl-4">
             <div class="card bg-primary text-white h-100">
-                <div class="card-header"><h5>Latest Mars News - NASA</h5></div>
+                <div class="card-header"><h5><a href="https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest" class="text-decoration-none link-light">Latest Mars News</a></h5></div>
                 <a href="{{ latest['url'] }}"><img src="{{ latest['img'] }}" alt="Latest Image" class="card-img-top"></a>
                 <div class="card-body">
                     <h4 class="card-title"><a href="{{ latest['url'] }}" class="text-decoration-none link-light">{{ latest['title'] }}</a></h4>
@@ -15,7 +15,7 @@
         </div>
         <div class="col-xl-8">
             <div class="card bg-primary text-white h-100">
-                <div class="card-header"><h5>Image of the Week - NASA</h5></div>
+                <div class="card-header"><h5><a href="https://mars.nasa.gov/" class="text-decoration-none link-light">Image of the Week</a></h5></div>
                 <a href="{{ featured['article_url'] }}"><img src="{{ featured['img_url'] }}" alt="Image of the Week" class="card-img-top"></a>
                 <div class="card-body">
                     <h4 class="card-title"><a href="{{ featured['article_url'] }}" class="text-decoration-none link-light">{{ featured['name'] }}</a></h4>
@@ -26,7 +26,7 @@
     <div class="row mt-xl-3">
         <div class="col">
             <div class="card bg-primary text-white">
-                <div class="card-header"><h5>Mars Facts - NASA</h5></div>
+                <div class="card-header"><h5><a href="https://mars.nasa.gov/all-about-mars/facts/" class="text-decoration-none link-light">Mars Facts</a></h5></div>
                 <div class="card-body p-0">
                     <div class="table-responsive">
                     {{ facts_table|safe }}
@@ -38,7 +38,7 @@
     <div class="row mt-xl-3">
         <div class="col">
             <div class="card bg-primary text-white">
-                <div class="card-header"><h5>Mars Hemispheres - USGS Astropedia</h5></div>
+                <div class="card-header"><h5><a href="https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars" class="text-decoration-none link-light">Mars Hemispheres</a></h5></div>
                 <div class="card-body p-0 text-center">
                     <div class="card-group">
                         {% for hemisphere in hemispheres %}
