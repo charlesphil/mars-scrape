@@ -4,6 +4,7 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 import pandas as pd
 import requests
+from selenium.common.exceptions import WebDriverException
 from splinter import Browser
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
@@ -13,13 +14,13 @@ def scrape():
     # Set up a windowless Splinter browser with Chrome webdriver to use later 
     # when interacting with the NASA News and Mars Facts pages
     # Try with Chrome first
-    # try:
-    executable_path = {"executable_path": ChromeDriverManager().install()}
-    browser = Browser("chrome", **executable_path, headless=True)
+    try:
+        executable_path = {"executable_path": ChromeDriverManager().install()}
+        browser = Browser("chrome", **executable_path, headless=True)
     # If Chrome is not installed, try with Firefox
-    # except:
-    #     executable_path = {"executable_path": GeckoDriverManager().install()}
-    #     browser = Browser("firefox", **executable_path, headless=True)
+    except WebDriverException:
+        executable_path = {"executable_path": GeckoDriverManager().install()}
+        browser = Browser("firefox", **executable_path, headless=True)
 
     # Splinter browser
     url = ("https://mars.nasa.gov/news/?page=0&per_page=40"
@@ -113,8 +114,8 @@ def scrape():
     # Get all hemispheres from the results page
     hemispheres = soup.select("h3")
 
-    # List comprehension to remove "Enhanced" from the hemisphere names
-    hemispheres = [" ".join(name.text.split()[:-1]) for name in hemispheres]
+    # List comprehension to get text from the list of hemisphere h3 tags
+    hemispheres = [name.text for name in hemispheres]
 
     # Initialize empty list to store dictionaries of hemisphere names 
     # and image links into later
@@ -124,9 +125,14 @@ def scrape():
     # get the url of the full image, and go back to the results page to 
     # click on the next hemisphere
     for index, value in enumerate(hemispheres):
-        hemisphere_imgs.append({"name": value})
+        # String manipulation to store name without "Enhanced"
+        hemisphere_imgs.append({"name": " ".join(value.split()[:-1])})
 
-        browser.links.find_by_partial_text(value).click()
+        # Return list of elements that contain name of hemisphere (should only
+        # be one, but links.find_by_partial_text fails when using Firefox, so
+        # this is the alternative solution for compatibility in both)
+        hemisphere_link = browser.find_by_text(value)
+        hemisphere_link[0].click()
 
         # Grab the new page's HTML and parse using beautiful soup
         html = browser.html
