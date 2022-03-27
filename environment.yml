@@ -13,3 +13,4 @@ dependencies:
     - splinter
     - webdriver-manager
     - pymongo
+    - ua-parser

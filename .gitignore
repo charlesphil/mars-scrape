@@ -136,3 +136,6 @@ Instructions/
 
 # Text file that keeps track of MongoDB Atlas for future hosting
 Missions_to_Mars/db_login.txt
+
+# geckodriver log
+geckodriver.log
