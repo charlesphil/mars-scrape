@@ -58,8 +58,15 @@ def home():
     if not is_compatible():
         return redirect("/error", code=302)
 
+    # If server times out, redirect to error page with flash message
+    try:
+        content = collection.find_one()
+    except ServerSelectionTimeoutError:
+        flash("Connection to the database timed out. Check the database URI "
+              "or if the database is running.", "danger")
+        return redirect("/error", code=302)
+
     # Check if content is available to pull from database, scrape if empty
-    content = collection.find_one()
     if content is None:
         flash(
             "No content was found. Attempting to scrape new data.",
@@ -111,7 +118,12 @@ def update():
         return redirect("/error", code=302)
 
     # Get last updated date from document in database
-    last_date = collection.find_one()['last_updated']
+    try:
+        last_date = collection.find_one()['last_updated']
+    except ServerSelectionTimeoutError:
+        flash("Connection to the database timed out. Check the database URI "
+              "or if the database is running.", "danger")
+        return redirect("/error", code=302)
 
     # If empty, scrape new data
     if last_date is None:
@@ -135,7 +147,12 @@ def about():
         return redirect("/error", code=302)
 
     # Get last updated date from document in database
-    last_date = collection.find_one()['last_updated']
+    try:
+        last_date = collection.find_one()['last_updated']
+    except ServerSelectionTimeoutError:
+        flash("Connection to the database timed out. Check the database URI "
+              "or if the database is running.", "danger")
+        return redirect("/error", code=302)
 
     # If empty, scrape new data
     if last_date is None:
