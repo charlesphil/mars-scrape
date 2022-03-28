@@ -82,7 +82,7 @@ def home():
                 facts_table=content["facts"],
                 featured=content["featured_img"],
                 hemispheres=content["hemispheres"],
-                last_updated=f"Last Updated: {content['last_updated']}"
+                last_updated=f"Last Scraped: {content['last_updated']}"
             )
         # If database does not have all the required data, scrape new data
         except KeyError:
@@ -136,7 +136,7 @@ def update():
     else:
         return render_template(
             "update.html",
-            last_updated=f"Last Updated: {last_date}"
+            last_updated=f"Last Scraped: {last_date}"
         )
 
 
@@ -165,7 +165,7 @@ def about():
     else:
         return render_template(
             "about.html",
-            last_updated=f"Last Updated: {last_date}"
+            last_updated=f"Last Scraped: {last_date}"
         )
 
 

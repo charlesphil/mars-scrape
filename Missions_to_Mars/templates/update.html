@@ -11,24 +11,38 @@
         <div class="col-lg-5 col-xl-3">
             <div class="card bg-primary text-white">
                 <div class="card-header">
-                    <h5>Update</h5>
+                    <h5>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"></path>
+                            <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"></path>
+                        </svg>
+                        <span class="align-middle">Update</span>
+                    </h5>
                 </div>
                 <div class="card-body">
-                    <h6 class="card-text">Pressing this button will scrape the source websites for content. This process will take some time to complete.</h6>
-                    <button id="update-button" onclick="showLoading()" type="button" class="btn btn-primary btn-lg d-flex mx-auto"><a href="{{ url_for('scrape') }}" class="text-decoration-none link-light">Let's Update!</a></button>
+                    <h6 class="card-text text-center text-lg-start">Pressing this button will scrape the source websites for content. This process will take some time to complete.</h6>
+                    <div class="text-center">
+                        <a id="update-button" type="button" onclick="showLoading()" href="{{ url_for('scrape') }}" class="text-decoration-none link-light btn btn-primary btn-lg mx-auto">Let's Update!</a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-5">
+        <div class="col-lg-4">
             <div class="card bg-secondary text-white">
                 <div class="card-header">
-                    <h5>Sources</h5>
+                    <h5>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-down-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M6.364 2.5a.5.5 0 0 1 .5-.5H13.5A1.5 1.5 0 0 1 15 3.5v10a1.5 1.5 0 0 1-1.5 1.5h-10A1.5 1.5 0 0 1 2 13.5V6.864a.5.5 0 1 1 1 0V13.5a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5v-10a.5.5 0 0 0-.5-.5H6.864a.5.5 0 0 1-.5-.5z"></path>
+                            <path fill-rule="evenodd" d="M11 10.5a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1 0-1h3.793L1.146 1.854a.5.5 0 1 1 .708-.708L10 9.293V5.5a.5.5 0 0 1 1 0v5z"></path>
+                        </svg>
+                        <span class="align-middle">Sources</span>
+                    </h5>
                 </div>
                 <div class="card-body">
-                    <h6 class="card-text">Mars News: <a href="https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest" class="text-decoration-none">News - NASA Mars Exploration</a></h6>
-                    <h6 class="card-text">Image of the Week: <a href="https://mars.nasa.gov/" class="text-decoration-none">NASA Mars Exploration</a></h6>
-                    <h6 class="card-text">Mars Facts: <a href="https://mars.nasa.gov/all-about-mars/facts/" class="text-decoration-none">Mars Facts | All About Mars – NASA Mars Exploration</a></h6>
-                    <h6 class="card-text">Mars Hemispheres: <a href="https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars" class="text-decoration-none">Astropedia | USGS Astrogeology Science Center</a></h6>
+                    <h6 class="card-text"><strong>Mars News: </strong><a href="https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest" class="text-decoration-none link-light">News - NASA Mars Exploration</a></h6>
+                    <h6 class="card-text"><strong>Image of the Week: </strong><a href="https://mars.nasa.gov/" class="text-decoration-none link-light">NASA Mars Exploration</a></h6>
+                    <h6 class="card-text"><strong>Mars Facts: </strong><a href="https://mars.nasa.gov/all-about-mars/facts/" class="text-decoration-none link-light">Mars Facts | All About Mars – NASA Mars Exploration</a></h6>
+                    <h6 class="card-text"><strong>Mars Hemispheres: </strong><a href="https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars" class="text-decoration-none link-light">Astropedia | USGS Astrogeology Science Center</a></h6>
                 </div>
             </div>
         </div>

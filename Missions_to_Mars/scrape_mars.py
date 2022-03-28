@@ -104,7 +104,7 @@ def scrape():
         justify="center"
     )
 
-    # Need to interact with website for images, use Splinter
+    # Need to interact with website for img, use Splinter
     url = ("https://astrogeology.usgs.gov/search/results?"
            + "q=hemisphere+enhanced&k1=target&v1=Mars")
     browser.visit(url)
