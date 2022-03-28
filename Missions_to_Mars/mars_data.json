@@ -1,0 +1,36 @@
+{
+  "_id": {
+    "$oid": "623f961e2c725c97dc761497"
+  },
+  "facts": "<table border=\"1\" class=\"dataframe table table-bordered table-striped table-dark m-0\">\n  <thead>\n    <tr style=\"text-align: center;\">\n      <th></th>\n      <th>EARTH</th>\n      <th>MARS</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Average Distance from Sun</td>\n      <td>93 million miles</td>\n      <td>142 million miles</td>\n    </tr>\n    <tr>\n      <td>Average Speed in Orbiting Sun</td>\n      <td>18.5 miles per second</td>\n      <td>14.5 miles per second</td>\n    </tr>\n    <tr>\n      <td>Diameter</td>\n      <td>7,926 miles</td>\n      <td>4,220 miles</td>\n    </tr>\n    <tr>\n      <td>Tilt of Axis</td>\n      <td>23.5 degrees</td>\n      <td>25 degrees</td>\n    </tr>\n    <tr>\n      <td>Length of Year</td>\n      <td>365.25 Days</td>\n      <td>687 Earth Days</td>\n    </tr>\n    <tr>\n      <td>Length of Day</td>\n      <td>23 hours 56 minutes</td>\n      <td>24 hours 37 minutes</td>\n    </tr>\n    <tr>\n      <td>Gravity</td>\n      <td>2.66 times that of Mars</td>\n      <td>0.375 that of Earth</td>\n    </tr>\n    <tr>\n      <td>Temperature</td>\n      <td>Average 57 degrees F</td>\n      <td>Average -81 degrees F</td>\n    </tr>\n    <tr>\n      <td>Atmosphere</td>\n      <td>nitrogen, oxygen, argon, others</td>\n      <td>mostly carbon dioxide, some water vapor</td>\n    </tr>\n    <tr>\n      <td>Number of Moons</td>\n      <td>1</td>\n      <td>2</td>\n    </tr>\n  </tbody>\n</table>",
+  "featured_img": {
+    "name": "Kaiser Crater Dunes--False Color",
+    "img_url": "https://mars.nasa.gov/system/basic_html_elements/294_1600x900-Kaiser-Crater-Dunes-PIA24708.jpg",
+    "article_url": "https://mars.nasa.gov/resources/25999/kaiser-crater-dunes-false-color/ "
+  },
+  "hemispheres": [
+    {
+      "name": "Cerberus Hemisphere",
+      "url": "https://astrogeology.usgs.gov/cache/images/f5e372a36edfa389625da6d0cc25d905_cerberus_enhanced.tif_full.jpg"
+    },
+    {
+      "name": "Schiaparelli Hemisphere",
+      "url": "https://astrogeology.usgs.gov/cache/images/3778f7b43bbbc89d6e3cfabb3613ba93_schiaparelli_enhanced.tif_full.jpg"
+    },
+    {
+      "name": "Syrtis Major Hemisphere",
+      "url": "https://astrogeology.usgs.gov/cache/images/555e6403a6ddd7ba16ddb0e471cadcf7_syrtis_major_enhanced.tif_full.jpg"
+    },
+    {
+      "name": "Valles Marineris Hemisphere",
+      "url": "https://astrogeology.usgs.gov/cache/images/b3c7c6c9138f57b4756be9b9c43e3a48_valles_marineris_enhanced.tif_full.jpg"
+    }
+  ],
+  "last_updated": "2022-03-28 10:19:19",
+  "latest_news": {
+    "title": "NASA's Ingenuity Helicopter and Asteroid-Monitoring System Honored",
+    "paragraph": "The team behind the agency's history-making rotorcraft soars, picking up high-profile awards alongside a new-and-improved system to assess asteroid orbits.",
+    "img": "https://mars.nasa.gov/system/news_items/main_images/9152_1-Ingenuity-Goddard-web.jpg",
+    "url": "https://mars.nasa.gov/news/9152/nasas-ingenuity-helicopter-and-asteroid-monitoring-system-honored/"
+  }
+}
