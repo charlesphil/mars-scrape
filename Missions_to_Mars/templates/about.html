@@ -3,7 +3,7 @@
 {% block title %}About{% endblock %}
 {% block main %}
     <div class="row justify-content-center mt-md-3 mx-md-3 mx-lg-0">
-        <div class="col-md-7 col-lg-6">
+        <div class="col-md-7">
             <div class="card bg-primary text-white">
                 <div class="card-header">
                     <h5>
@@ -13,9 +13,10 @@
                         <span class="align-middle">About</span>
                     </h5>
                 </div>
-                <div class="card-body">
-                    <h4 class="card-title"></h4>
-                    <p class="card-text"></p>
+                <div class="card-body card-text">
+                    <p>The purpose of this site is to demonstrate the scraping, loading, and storage of many types of content from websites related to Mars and Mars exploration. To access the elements in the HTML, I used the popular <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/" class="text-decoration-none link-info">BeautifulSoup Python library</a>. To automate the clicking of items for access to these high quality images, I used the <a href="https://splinter.readthedocs.io/en/latest/" class="text-decoration-none link-info">Splinter Python library</a> to interact with elements in these pages.</p>
+                    <p>The "Latest News" card scrapes the NASA news page to obtain a high resolution image link of the article as well as getting the headline and blurb. The "Image of the Week" comes from NASA's home page, which gets the link from the image element along with the name of the image. The "Mars Facts" card scrapes the table element on the NASA Mars Facts page and is processed using the <a href="https://pandas.pydata.org/" class="text-decoration-none link-info">Pandas Python library</a>, which then gets exported as a string of HTML code. Lastly, the "Mars Hemisphere" card gets the high resolution images and names from the United States Geological Survey Astropedia page on Mars.</p>
+                    <p>For storing the data, I opted to use MongoDB, a NoSQL database, as this project mainly reads stored data that will not change very frequently. I do not have much need to write large amounts of data, and instead I am solely focused on easy content management of a few documents.</p>
                 </div>
             </div>
         </div>
