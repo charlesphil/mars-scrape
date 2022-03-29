@@ -28,7 +28,7 @@ Lastly, the "Mars Hemisphere" card gets the high resolution images and names fro
 
 For storing the data, I opted to use MongoDB, a NoSQL database, as this project mainly reads stored data that will not change very frequently. I do not have much need to write large amounts of data, and instead I am solely focused on easy content management of a few documents.
 
-## Installation
+## Local Installation
 
 ### Setting up the environment
 
