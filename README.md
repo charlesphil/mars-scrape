@@ -48,16 +48,6 @@ Once installed, activate the environment with `conda activate mars_scrape` and y
 
 *Your console will look different depending on your set up.*
 
-### Running the Flask App
-
-Once the environment is set up, navigate your console to `Missions_to_Mars/` and run the command `Python app.py`.
-
-![App Folder](images/appfolder.png)
-
-![Running the App](images/runningapp.png)
-
-Open either **Google Chrome** or **Mozilla Firefox** to the localhost address listed in your console (most commonly will be <http://127.0.0.1:5000/>). This project requires either Chrome or Firefox to be installed on your system as the web automation library uses either the Chrome or Gecko web drivers to run the scrape.
-
 ### Start the Mongo database
 
 This project requires [MongoDB](https://www.mongodb.com/), a NoSQL database. If MongoDB is not installed on your device, please refer to <https://www.mongodb.com/try/download/community> for installation.
@@ -69,3 +59,13 @@ Please follow these instructions to install and start the service on your platfo
 **[macOS](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/)**
 
 **[Linux (Red Hat, Ubuntu, Debian, SUSE, Amazon)](https://www.mongodb.com/docs/manual/administration/install-on-linux/)**
+
+### Running the Flask App
+
+Once the environment is set up, navigate your console to `Missions_to_Mars/` and run the command `Python app.py`.
+
+![App Folder](images/appfolder.png)
+
+![Running the App](images/runningapp.png)
+
+Open either **Google Chrome** or **Mozilla Firefox** to the localhost address listed in your console (most commonly will be <http://127.0.0.1:5000/>). This project requires either Chrome or Firefox to be installed on your system as the web automation library uses either the Chrome or Gecko web drivers to run the scrape.
