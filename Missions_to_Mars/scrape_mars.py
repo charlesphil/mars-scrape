@@ -8,6 +8,7 @@ from selenium.common.exceptions import WebDriverException
 from splinter import Browser
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
+from selenium.webdriver import ChromeOptions
 
 
 def scrape():
@@ -15,6 +16,10 @@ def scrape():
     # when interacting with the NASA News and Mars Facts pages
     # Try with Chrome first
     try:
+        chrome_options = ChromeOptions()
+        chrome_options.add_argument("--disable-gpu")
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument("--disable-dev-shm-usage")
         executable_path = {"executable_path": ChromeDriverManager().install()}
         browser = Browser("chrome", **executable_path, headless=True)
     # If Chrome is not installed, try with Firefox
@@ -44,11 +49,8 @@ def scrape():
     latest_para = latest_article.select_one("div.article_teaser_body").text
     latest_url = f"https://mars.nasa.gov{latest_article.a['href']}"
 
-    # Grab article's full-res image from article link
-    browser.visit(latest_url)
-    html = browser.html
-    soup = BeautifulSoup(html, "lxml")
-    latest_img = f"https://mars.nasa.gov{soup.select_one('#main_image')['src']}"
+    # Grab article's thumbnail from article preview
+    latest_img = f"https://mars.nasa.gov{latest_article.select_one('div.list_image>img')['src']}"
 
     # Save in a dictionary for quick access
     latest_news = {
